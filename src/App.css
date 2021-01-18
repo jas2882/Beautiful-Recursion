@@ -27,8 +27,12 @@ margin-top: 2vh;
   flex-direction: row;
 }
 #myCanvas {
+
   display: flex;
   color: var(--text);
+  width: 70vw;
+  height: 100vh;
+  background-color: aqua;
   /*
   background-color: var(--primary-color);
   height: max-content;
