@@ -1,5 +1,12 @@
-const Draw = () => {
-  // Credit to CodePen Home Zachary Frisch on codePen for canvas dpi adjustment
+
+export const Render = () => 
+{
+  console.log('render')
+};
+
+const Draw = (props) => {
+
+  // Credit to Zachary Frisch on codePen for canvas dpi adjustment
   function canvasObj(element) {
     let returnable = {
       canvas: element,
@@ -45,7 +52,8 @@ const Draw = () => {
     return returnable;
   }
   
-  let canvas = canvasObj(document.getElementById("myCanvas"));
+  let { canvasElement }= props;
+  let canvas = canvasObj(document.getElementById(canvasElement));
   let { ctx, dpi, set, get } = canvas;
   
   function adjustDPI() {
@@ -82,7 +90,7 @@ const Draw = () => {
   }
 
   adjustDPI();
-
+  
   /* adjustable inputs */
   let lengthInput = 120;          // baseline: 120
   let inputAngle = 0;             // baseline: 0
@@ -97,7 +105,7 @@ const Draw = () => {
   let setStrokeColor = "white";
   let setFillStyle= "green";
   let setShadowColor = "(rgba(0,0,0,0.8)";
-  let setAdjustCanvas = 1.01;        // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
+  let setAdjustCanvas = 1.01;     // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
   
   let originX =get.style.width() / 2; // center canvas on x-axis
   let originY =get.style.height() / setAdjustCanvas;  //center on y-axis <-- divide / 2 to center in middle of canvas -->

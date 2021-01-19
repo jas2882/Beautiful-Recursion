@@ -1,37 +1,30 @@
+import { Render } from './Draw';
 
-// export const SliderValues = () => {
-  
-//   return(
-//     sliderValues {
-//     }
-//   )
-// }
 const LeftMenu = () => {
-  let value, min, max, handleChange, step;
-
-  min = 0;
+  let minValue, max, handleChange, step;
+  minValue = 0;
   max = 255;
-  value = 10;
-
+  
   return (
     <div className="side-menu-left" id="side-menu">
+       
       <div className="numOfBranches">
         <button className="btn decrement">
-          <i class="fa fa-minus-square"></i>
+          <i className="fa fa-minus-square" ></i>
         </button>
           <span className="display">2</span>
         <button className=" btn increment">
-          <i class="fa fa-plus-square"></i>
+          <i className="fa fa-plus-square"></i>
         </button>
       </div>
       <input
         type="range"
         //value={value}
-        //min={minValue}
-        //max={max}
-        //onInput={handleChange}
+        min={minValue}
+        max={max}
+        onInput={handleChange}
         name="mySlider"
-        //step={step}
+        step={step}
       >
       </input>
       <input
@@ -43,7 +36,10 @@ const LeftMenu = () => {
         name="mySlider"
         //step={step}
       >
-      </input>
+       </input>
+        <button className="btn render-btn" onClick={() => Render()}>
+          Render
+      </button>
     </div>
   )
 }
