@@ -1,18 +1,18 @@
 const Draw = () => {
-  
-  function canvas_obj(ele) {
+  // Credit to CodePen Home Zachary Frisch on codePen for canvas dpi adjustment
+  function canvasObj(element) {
     let returnable = {
-      canvas: ele,
-      ctx: ele.getContext("2d"),
+      canvas: element,
+      ctx: element.getContext("2d"),
       dpi: window.devicePixelRatio
     };
     returnable.get = {
       style: {
         height() {
-          return +getComputedStyle(ele).getPropertyValue("height").slice(0, -2);
+          return +getComputedStyle(element).getPropertyValue("height").slice(0, -2);
         },
         width() {
-          return +getComputedStyle(ele).getPropertyValue("width").slice(0, -2);
+          return +getComputedStyle(element).getPropertyValue("width").slice(0, -2);
         }
       },
       attr: {
@@ -27,84 +27,82 @@ const Draw = () => {
     returnable.set = {
       style: {
         height(ht) {
-          ele.style.height = ht + "px";
+          element.style.height = ht + "px";
         },
         width(wth) {
-          ele.style.width = wth + "px";
+          element.style.width = wth + "px";
         }
       },
       attr: {
         height(ht) {
-          ele.setAttribute("height", ht);
+          element.setAttribute("height", ht);
         },
         width(wth) {
-          ele.setAttribute("width", wth);
+          element.setAttribute("width", wth);
         }
       }
     };
-    console.log(ele.height, ele.width)
     return returnable;
   }
   
-  let canvas = canvas_obj(document.getElementById("myCanvas"));
+  let canvas = canvasObj(document.getElementById("myCanvas"));
   let { ctx, dpi, set, get } = canvas;
   
-  function dpi_adjust() {
+  function adjustDPI() {
     set.attr.height(get.style.height() * dpi);
     set.attr.width(get.style.width() * dpi);
   }
-  
+
   function draw(startX, startY, len, angle) {
-    
-    console.log("draw called")
 
-  //ctx.strokeStyle = "green"
-  //ctx.fillStyle = "green"
-    // Set line width
-    
-    // Width left:0 top-down:825  right:1343
-    // ctx.strokeRect(0, 825, 1343, 100);
-    
-    // ctx.moveTo(50, 140);
-    // ctx.lineTo(150, 60);
-    // ctx.lineTo(250, 140);
-    // ctx.closePath();
-    // ctx.stroke();
-    // ctx.translate(startX, startY);
-    // ctx.rotate(angle * Math.PI/180);
-    // ctx.moveTo(0, 0);
-    // ctx.lineTo(0, -len);
-    // ctx.stroke();
-    
-  ctx.lineWidth = 2;
- 
-  ctx.beginPath();
-  ctx.save();
-  ctx.translate(startX, startY);
-  ctx.rotate(angle * Math.PI/180);
-  ctx.moveTo(0, 0);
-  ctx.lineTo(0, -len);
-  ctx.stroke();  
+    ctx.lineWidth = setLineWidth;
+    ctx.strokeStyle = setStrokeColor;
+    ctx.fillStyle = setFillStyle;
 
+    ctx.beginPath();
+    ctx.save();
+    ctx.translate(startX, startY);
+    ctx.rotate(angle * Math.PI/setRotate);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -len);
+    ctx.stroke();
 
-  ctx.shadowBlur = 15;
-  ctx.shadowColor = "(rgba(0,0,0,0.8)"
-  
-  if(len < 10) {
+    ctx.shadowBlur = setShadowBlur;
+    ctx.shadowColor = setShadowColor;
+
+    if(len < setRecursionExit) {
+      ctx.restore();
+      return;
+    }
+
+     draw(0, -len, len * setBranchDensityLeft, setDegreesRight);
+     draw(0, -len, len * setBranchDensityRight, setDegreesLeft);
+
     ctx.restore();
-    return;
   }
 
-  draw(0, -len, len*.8, -15)
-  draw(0, -len, len*.8, 15)
+  adjustDPI();
+
+  /* adjustable inputs */
+  let lengthInput = 120;          // baseline: 120
+  let inputAngle = 0;             // baseline: 0
+  let setLineWidth = 0.1;         // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
+  let setDegreesRight = -30;      // baseline: -30 Decrement to increase spread
+  let setDegreesLeft = 30;        // baseline: 30 Increment to increase spread
+  let setShadowBlur = 15          // baseline: 15
+  let setRecursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
+  let setBranchDensityLeft = 0.8; // baseline: 0.5
+  let setBranchDensityRight = 0.8;// max: 0.85
+  let setRotate = 180;            // baseline: 31
+  let setStrokeColor = "white";
+  let setFillStyle= "green";
+  let setShadowColor = "(rgba(0,0,0,0.8)";
+  let setAdjustCanvas = 1.01;        // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
   
-  ctx.restore();
-}
+  let originX =get.style.width() / 2; // center canvas on x-axis
+  let originY =get.style.height() / setAdjustCanvas;  //center on y-axis <-- divide / 2 to center in middle of canvas -->
 
-  dpi_adjust();
-
-  requestAnimationFrame( a => draw(700,900,120, 0));
-
+  requestAnimationFrame( a => draw(originX, originY, lengthInput, inputAngle));
 }
 
 export default Draw;

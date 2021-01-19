@@ -1,9 +1,6 @@
 .App {
   text-align: center;
 }
-/*
-margin-top: 2vh;
-*/
 :root {
   --primary-color: rgb(0, 0, 0);
   --secondary-color: #282c34;
@@ -18,7 +15,6 @@ margin-top: 2vh;
 }
 .display {
   color: var(--text);
-  /* overflow: hidden; */
 }
 .content-body {
   width: 100vw;
@@ -27,25 +23,60 @@ margin-top: 2vh;
   flex-direction: row;
 }
 #myCanvas {
-
   display: flex;
   color: var(--text);
   width: 70vw;
   height: 100vh;
-  background-color: aqua;
-  /*
-  background-color: var(--primary-color);
-  height: max-content;
-  width: 70vw;
-  height: 100vh;
-  */
+  background-color: rgb(0, 0, 0);
 }
 #side-menu {
   background-color: var(--secondary-color);
+  width: 15vw;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+/*
+.slider {
 }
 .side-menu-right {
+  border: 1px solid var(--third-color);
+  background-color: var(--third-color);
   width: 15vw;
 }
 .side-menu-left {
   width: 15vw;
+} */
+.numOfBranches {
+  color: var(--text);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn {
+  color: var(--text);
+  color:var(--text);
+  border: none;
+  background: none;
+  font-size: calc(7px + 2vmin);
+  /*
+  height: auto;
+  width: 30%;
+  */
+}
+.display {
+  /*
+  background-color: blueviolet;
+  padding: 10px;
+  */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  font-size: calc(7px + 2vmin);
+  height: auto;
+  width: 20%;
+  background-color: var(--text);
+  color: var(--secondary-color);
 }
