@@ -1,9 +1,24 @@
+//import fireImage from './resources/fire_effect.gif';
 
 export const Render = () => 
 {
   console.log('render')
 };
+export const SetValue = (id, min, max, increment) => {
 
+  let displayValue = document.getElementById(id);
+  let changeValue = Math.floor(increment);
+  let value = Math.floor(displayValue.innerHTML) + changeValue;
+
+  // add checks
+
+  displayValue.innerHTML = value;
+
+  console.log(min, max, value);
+
+  return value;
+  
+}
 const Draw = (props) => {
 
   // Credit to Zachary Frisch on codePen for canvas dpi adjustment
@@ -52,7 +67,7 @@ const Draw = (props) => {
     return returnable;
   }
   
-  let { canvasElement }= props;
+  let { canvasElement } = props;
   let canvas = canvasObj(document.getElementById(canvasElement));
   let { ctx, dpi, set, get } = canvas;
   
@@ -66,8 +81,10 @@ const Draw = (props) => {
     ctx.lineWidth = setLineWidth;
     ctx.strokeStyle = setStrokeColor;
     ctx.fillStyle = setFillStyle;
+    ctx.globalAlpha = setOpacity;
 
     ctx.beginPath();
+
     ctx.save();
     ctx.translate(startX, startY);
     ctx.rotate(angle * Math.PI/setRotate);
@@ -80,6 +97,7 @@ const Draw = (props) => {
 
     if(len < setRecursionExit) {
       ctx.restore();
+      //console.log('step');
       return;
     }
 
@@ -90,27 +108,40 @@ const Draw = (props) => {
   }
 
   adjustDPI();
-  
   /* adjustable inputs */
-  let lengthInput = 120;          // baseline: 120
-  let inputAngle = 0;             // baseline: 0
-  let setLineWidth = 0.1;         // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
-  let setDegreesRight = -30;      // baseline: -30 Decrement to increase spread
-  let setDegreesLeft = 30;        // baseline: 30 Increment to increase spread
-  let setShadowBlur = 15          // baseline: 15
-  let setRecursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
+  let setAdjustCanvas = 1.1;     // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
   let setBranchDensityLeft = 0.8; // baseline: 0.5
   let setBranchDensityRight = 0.8;// max: 0.85
+  let setDegreesLeft = 30;        // baseline: 30 Increment to increase spread
+  let setDegreesRight = -30;      // baseline: -30 Decrement to increase spread
+  let setFillStyle= "rgba(0, 0, 0, 0, 0.9)";
+  let setInputAngle = 0           // baseline: 0
+  let setLength = 200;            // baseline: 120 max:200
+  let setLineWidth = 1;           // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
+  let setOpacity = 0.07;          // 1 = no transparency 0 = full transparency
+  let setRecursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
   let setRotate = 180;            // baseline: 31
-  let setStrokeColor = "white";
-  let setFillStyle= "green";
+  let setShadowBlur = 15          // baseline: 15
   let setShadowColor = "(rgba(0,0,0,0.8)";
-  let setAdjustCanvas = 1.01;     // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
-  
+  let setStrokeColor = "white"
+
   let originX =get.style.width() / 2; // center canvas on x-axis
   let originY =get.style.height() / setAdjustCanvas;  //center on y-axis <-- divide / 2 to center in middle of canvas -->
 
-  requestAnimationFrame( a => draw(originX, originY, lengthInput, inputAngle));
-}
+  //let img = <img src={fireImage} alt="fire"></img>
+  //let strokeEffect = ctx.drawImage(img, originX, originY);
 
+  draw(originX, originY, setLength, setInputAngle);
+}
+// function getRandomColor() {
+//   let letters = '0123456789ABCDEF';
+//   let color = '#';
+//   for (let i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// }
+// function getRandomSetting(min, max) {
+//   return Math.floor((Math.random() * max) + min);
+// }
 export default Draw;

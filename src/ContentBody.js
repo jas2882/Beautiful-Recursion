@@ -7,7 +7,9 @@ const ContentBody = () => {
   return (
     <div className="content-body">
       <LeftMenu />
-      <Canvas />
+      <div className="canvas-section">
+        <Canvas />
+      </div>
       <RightMenu />
     </div>
   )

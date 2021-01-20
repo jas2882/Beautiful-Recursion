@@ -14,7 +14,8 @@ class Canvas extends Component {
     return (
       <>
         <canvas className="myCanvas" id={this.state.canvasId}></canvas>
-      </>
+        {/* <canvas className="myCanvasBackground" id="canvasBackground"></canvas>*/}
+      </> 
     );
   }
 

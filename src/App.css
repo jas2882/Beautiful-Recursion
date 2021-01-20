@@ -4,8 +4,8 @@
 :root {
   --primary-color: rgb(0, 0, 0);
   --secondary-color: #282c34;
-  --third-color:  #ff2f14;
-  --text:   rgb(255, 255, 255);
+  --third-color: #ff2f14;
+  --text: rgb(255, 255, 255);
   --border: rgb(0, 155, 255);
   --type-1: rgb(255, 0, 0);
   --type-2: rgb(255, 230, 0);
@@ -22,13 +22,46 @@
   display: flex;
   flex-direction: row;
 }
-.myCanvas {
-  display: flex;
-  color: var(--text);
+.canvas-section {
   width: 70vw;
   height: 100vh;
-  background: radial-gradient(ellipse farthest-side at top,#73646e 0,#3c3237 100%);
-  /* color: #bd407e; */
+  position: relative;
+}
+.myCanvas {
+  color: var(--text);
+  /* background: radial-gradient(ellipse farthest-side at top,#73646e 0,#3c3237 100%); */
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse farthest-side at top,
+    #73646e 0,
+    #3c3237 100%
+  );
+   /* background-image: url('./resources/fire_effect.gif'); */
+    background-size: cover;
+ background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -10;
+  /*
+  display: flex;
+  color: #bd407e;
+  */
+}
+.myCanvasBackground {
+  color: var(--text);
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  /*
+  */
 }
 #side-menu {
   background-color: var(--secondary-color);
@@ -50,15 +83,28 @@
 .side-menu-left {
   width: 15vw;
 } */
-.numOfBranches {
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--third-color);
+  padding: 1vh;
+}
+.label {
+  color: var(--text);
+}
+.counter {
   color: var(--text);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: calc(3px + 1vmin);;
+}
+.num-of-branches {
+  color: #ff2f14;
 }
 .btn {
   color: var(--text);
-  color:var(--text);
+  color: var(--text);
   border: none;
   background: none;
   font-size: calc(7px + 2vmin);
