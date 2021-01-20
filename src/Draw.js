@@ -1,23 +1,32 @@
 //import fireImage from './resources/fire_effect.gif';
 
-export const Render = () => 
-{
+export const Render = () => {
   console.log('render')
+};
+export const Reset = () => {
+  console.log('reset')
 };
 export const SetValue = (id, min, max, increment) => {
 
   let displayValue = document.getElementById(id);
-  let changeValue = Math.floor(increment);
-  let value = Math.floor(displayValue.innerHTML) + changeValue;
+  let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
 
   // add checks
 
   displayValue.innerHTML = value;
 
-  console.log(min, max, value);
-
   return value;
-  
+}
+export const AdjustValue = () => {
+  console.log('adjusting');
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value; // Display the default slider value
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 }
 const Draw = (props) => {
 
@@ -109,19 +118,19 @@ const Draw = (props) => {
 
   adjustDPI();
   /* adjustable inputs */
-  let setAdjustCanvas = 1.1;     // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
+  let setAdjustCanvas = 1;      // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
   let setBranchDensityLeft = 0.8; // baseline: 0.5
   let setBranchDensityRight = 0.8;// max: 0.85
   let setDegreesLeft = 30;        // baseline: 30 Increment to increase spread
   let setDegreesRight = -30;      // baseline: -30 Decrement to increase spread
   let setFillStyle= "rgba(0, 0, 0, 0, 0.9)";
   let setInputAngle = 0           // baseline: 0
-  let setLength = 200;            // baseline: 120 max:200
-  let setLineWidth = 1;           // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
+  let setLength = 157.5;            // baseline: 120 max:200
+  let setLineWidth = 2;           // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
   let setOpacity = 0.07;          // 1 = no transparency 0 = full transparency
   let setRecursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
   let setRotate = 180;            // baseline: 31
-  let setShadowBlur = 15          // baseline: 15
+  let setShadowBlur = 0;          // baseline: 15
   let setShadowColor = "(rgba(0,0,0,0.8)";
   let setStrokeColor = "white"
 

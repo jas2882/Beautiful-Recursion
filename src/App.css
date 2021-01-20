@@ -38,8 +38,8 @@
     #3c3237 100%
   );
    /* background-image: url('./resources/fire_effect.gif'); */
-    background-size: cover;
- background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   left: 0;
   top: 0;
@@ -82,12 +82,12 @@
 }
 .side-menu-left {
   width: 15vw;
+  padding: 1vh;
 } */
-.counter-container {
+.tool-container {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--third-color);
-  padding: 1vh;
 }
 .label {
   color: var(--text);
@@ -99,25 +99,14 @@
   justify-content: space-around;
   margin: calc(3px + 1vmin);;
 }
-.num-of-branches {
-  color: #ff2f14;
-}
 .btn {
   color: var(--text);
   color: var(--text);
   border: none;
   background: none;
   font-size: calc(7px + 2vmin);
-  /*
-  height: auto;
-  width: 30%;
-  */
 }
 .display {
-  /*
-  background-color: blueviolet;
-  padding: 10px;
-  */
   position: absolute;
   display: flex;
   justify-content: center;
@@ -126,4 +115,61 @@
   width: 20%;
   background-color: var(--text);
   color: var(--secondary-color);
+}
+/*
+width: 100%;
+justify-content: center;
+flex-direction: row;
+*/
+/* color picker display */
+.color-tool-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2vh 1vw;
+}
+/* color preview */
+.color-display {
+  width: 100vw;
+  height: 100px;
+  background-color: azure;
+}
+/* .color-display-label {
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.323);
+}
+*/
+.slide-container {
+  color: var(--text);
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 5px;
+} 
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.5;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin: 2px;
+}
+.slider:hover  {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+#red {
+  background-color: red;
+}
+#green {
+  background-color: green;
+}
+#blue {
+  background-color: blue;
 }

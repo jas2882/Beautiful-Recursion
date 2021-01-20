@@ -4,7 +4,7 @@ export const NumberSpinner = (props) => {
   const {id, min ,max, increment, initValue, banner} = props;
 
   return (
-    <div className="counter-container" id="thickness">
+    <div className="tool-container">
       <label className="label">{banner}</label>
       <section className="counter">
         <button className="btn decrement" onClick={() => SetValue(id, min, max, -increment)}>
