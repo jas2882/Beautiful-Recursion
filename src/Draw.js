@@ -12,11 +12,16 @@ export const Random = () => {
 export const SetValue = (id, min, max, increment) => {
 
   let displayValue = document.getElementById(id);
-  let value = parseFloat(displayValue.innerHTML) + parseFloat(increment);
+  let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
+  
   console.log(value);
+  
   // add checks
+  if(value >= max || value <= min) {
+    console.log('limits exceeded');
+  }
 
-  displayValue.innerHTML = value.toFixed(2);
+  displayValue.innerHTML = value;
 
   return value;
 }
@@ -126,7 +131,7 @@ const Draw = (props) => {
   let setBranchDensityRight = 0.8;// max: 0.85
   let setDegreesLeft = 30;        // baseline: 30 Increment to increase spread
   let setDegreesRight = -30;      // baseline: -30 Decrement to increase spread
-  let setFillStyle= "rgba(0, 0, 0, 0, 0.9)";
+  let setFillStyle= "(rgba(0, 0, 0, 0, 0.9))";
   let setInputAngle = 0           // baseline: 0
   let setLength = 157.5;            // baseline: 120 max:200
   let setLineWidth = 2;           // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
@@ -134,8 +139,8 @@ const Draw = (props) => {
   let setRecursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
   let setRotate = 180;            // baseline: 31
   let setShadowBlur = 0;          // baseline: 15
-  let setShadowColor = "(rgba(0,0,0,0.8)";
-  let setStrokeColor = "white"
+  let setShadowColor = "(rgba(0,0,0,0.8))";
+  let setStrokeColor = '#ffffff';
 
   let originX =get.style.width() / 2; // center canvas on x-axis
   let originY =get.style.height() / setAdjustCanvas;  //center on y-axis <-- divide / 2 to center in middle of canvas -->

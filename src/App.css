@@ -6,6 +6,7 @@
   --gradient-match: #1a2031da;
   --hover: #314c66;
   --op-black:  rgba(0, 0, 0, 0.542);
+  --op-black-hover:  rgba(0, 0, 0, 0.801);
   --border-radius: 5px;
   --canvas-bg: radial-gradient(
     ellipse farthest-side at top,
@@ -43,12 +44,6 @@ i:hover {
   color: var(--text);
   border: none;
   background: none;
-}
-.btn:hover {
-  /*
-  border: none;
-  background: none;
-  */
 }
 .content-body {
   width: 100vw;
@@ -90,20 +85,8 @@ i:hover {
   flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  /*
-  box-sizing: border-box;
-  position: relative;
-  background: var(--background-radiant);
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.275);
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  */
 }
-themed:hover {
+.themed:hover {
   box-shadow: var(--standard-b-shadow-hover);
 }
 .tool-container {
@@ -119,6 +102,8 @@ themed:hover {
 }
 .tool-container:hover {
   box-shadow: var(--standard-b-shadow-hover);
+  transition-timing-function: ease-in-out;
+  transition: box-shadow 0.5s;
 }
 /* title of toolbox */
 .label {
@@ -146,12 +131,6 @@ themed:hover {
   min-width: 45px;
   background-color: rgba(0, 0, 0, 0.275);
   text-shadow: 0 0 10px var(--border);
-  /*
-  width: 80%;
-  width: auto;
-  position: absolute;
-  color: var(--secondary-color);
-  */
 }
 /* right menu */
 .color-tool-container {
@@ -165,16 +144,15 @@ themed:hover {
   cursor: pointer;
   position: relative;
 }
+.color-tool-container:hover {
+  background-color: rgb(80, 80, 180);
+}
 /* color picker display */
 .color-tool-display {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*
-  flex-direction: row;
-  margin: 2vh 1vw;
-  */
 }
 /* color preview */
 .color-display {
@@ -182,9 +160,6 @@ themed:hover {
   height: 90%;
   background-color: rgb(255, 255, 255);
   cursor: pointer;
-  /*
-  color: white;
-  */
 }
 .render-btn,
 .clear-btn,
@@ -203,8 +178,7 @@ themed:hover {
 .render-btn:hover,
 .clear-btn:hover,
 .random-btn:hover,
-.radio-btn:hover,
-.vert-slide:hover {
+.radio-btn:hover {
   color: var(--text);
   box-shadow: var(--standard-b-shadow-hover);
   background-color: var(--secondary-color);
@@ -224,45 +198,32 @@ themed:hover {
 }
 .apply-btn:hover {
   color: white;
+  transition: box-shadow 0.3s;
   box-shadow: var(--standard-b-shadow-hover);
-  background: rgba(0, 0, 0, 0.63);
-  border: 1px solid var(--border);
-  text-shadow: 0 0 10px var(--border);
-  /*
-  background-color: white;
-  */
+  background: var(--border);
+  border: 1px solid var(--text);
+  text-shadow: 0 0 10px var(--primary-color);
 }
 /* radio switches */
 .radio-container {
   display: flex;
   justify-content: space-between;
-  /*
-  flex-direction: row;
-  padding: 5px;
-  */
+  margin: 0;
 }
 .radio-btn {
   font-size: calc(8px + 1vmin);
   box-shadow: var(--standard-b-shadow);
 }
 /* slider thumbs and tracks */
-.color-slider {
-  background-color: none;
-}
 .vert {
   height: 100%;
   border: none;
   background: var(--op-black);
   justify-content: center;
-  /*
-  margin: 5px;
-  width: 1px;
-  border: 1px solid var(--border);
-  background-color: blueviolet;
-  */
 }
 .horizontal {
   border: none;
+  box-shadow: none;
 }
 .slide-container {
   box-sizing: border-box;
@@ -270,32 +231,29 @@ themed:hover {
   display: flex;
   box-sizing: border-box;
   border: none;
-  /*
   background-color: none;
-  width: 2vw;
-  width: 100%;
-  padding: 2px 5px;
-  */
-} 
+}
 .slider {
-  /*
-  -webkit-appearance: none;
-  background: #d3d3d3;
-  height: 15px;
+  background: var(--primary-color);
   border-radius: var(--border-radius);  
-  outline: none;
-  opacity: 0.5;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  margin: 2px;
-  */
+  opacity: 0.4;
+  transition: opacity .4s;
+  border: none;
 }
 /* Mouse-over effects */
 .slider:hover  {
+  background: var(--text);
   opacity: 1; /* Fully shown on mouse-over */
 }
 .color-slider {
   background-color: var(--op-black);
+  border-radius: var(--border-radius);
+  margin: 1vw;
+}
+.color-slider:hover {
+  background-color: var(--op-black-hover);
+  transition: background-color 0.5s;
+  transition-timing-function: ease-in-out;
 }
 .vert {
   width: 3px;
@@ -314,6 +272,15 @@ themed:hover {
 }
 #blue {
   background: blue;
+}
+#red:hover {
+  box-shadow: 0 0 30px 2px red;
+}
+#green:hover {
+  box-shadow: 0 0 30px 2px green;
+}
+#blue:hover {
+  box-shadow: 0 0 30px 2px blue;
 }
 /* webKits for thumb range sliders */
 /* Firefox */

@@ -1,5 +1,4 @@
 import { ColorPicker } from './ColorPicker';
-import { NumberSpinner } from './NumberSpinner';
 import { Render, Clear, Random } from './Draw';
 
 const RightMenu = () => {

@@ -33,14 +33,6 @@ const LeftMenu = () => {
         initValue={180}
       />
       <NumberSpinner
-        banner="Length"
-        id="branchLength"
-        min={70}
-        max={250}
-        increment="5"
-        initValue={70}
-      />
-      <NumberSpinner
         banner="Adjust Canvas"
         id="adjustCanvas"
         min={1}

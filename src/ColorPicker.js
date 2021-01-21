@@ -1,12 +1,7 @@
-//import { AdjustValue } from './Draw';
+//import { SetValue } from './Draw';
 
-export const ColorPicker = (props) => {
-  {/* 
-    surround color display with opacity slide
-    box shadow, gradient and background-stroke color toggle 
-    dynamic box-shadow on tool components
-    maybe frame canvas
-
+export const ColorPicker = () => {
+  /*
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
     output.innerHTML = slider.value; // Display the default slider value
@@ -15,19 +10,11 @@ export const ColorPicker = (props) => {
     slider.oninput = function() {
       output.innerHTML = this.value;
     }
-
-  */}
-
-  const { banner, current } = props;
-  const min = 0;
-  const max = 255;
-  // const colorPicked;
-  // const r,g,b;
-
-  //cs vision
+        red green blue alpha
+  */
   return (
-    <div className="color-tool-container" >
-      <div className="radio-container">
+    <section className="color-tool-container" >
+      <div className="radio-container counter">
         <label className="tool-container radio-btn">Stroke
           <input className="radio-btn-glow" type="radio" name="radio" onClick={() => console.log('check')} />
             <span className="checkMark"></span>
@@ -43,59 +30,58 @@ export const ColorPicker = (props) => {
       </div>
 
       <section className="color-tool-display">
-        <span className="slide-container themed">
+        <span className="slide-container">
           <input 
             className="vert slide-container slider"
-            id="vert"
+            id="alpha"
             orient="vertical"
             type="range"
-            min="0"
-            max="100"
+            min='0'
+            max='1'
           />
         </span>
-        <span className="color-display"></span>
-        <span className="slide-container themed">
+        <span className="color-display" id="color-preview">hello</span>
+        <span className="slide-container">
           <input 
             className="vert slide-container slider"
-            id="vert" 
-            type="range" 
+            id="blur" 
             orient="vertical"
+            type="range"
+            min='0'
+            max='3' 
           />
         </span>
       </section>
-      <section className="color-slider themed">
-        <span className="horizontal slide-container themed">
+      <section className="color-slider">
+        <span className="horizontal slide-container">
           <input 
             className="slider"
             type="range"
-            min={min}
-            max={max}
-            value={current}
+            min='0'
+            max='3'
             id="red"
           />
           </span>
-        <span className="horizontal slide-container themed">
+        <span className="horizontal slide-container">
           <input
           className="slider"
           type="range"
-          min={min}
-          max={max}
-          value={current}
+          min='0'
+          max='3'
           id="green"
         />
         </span>
-        <span className="horizontal slide-container themed">
+        <span className="horizontal slide-container">
         <input
           className="slider"
           type="range"
-          min={min}
-          max={max}
-          value={current}
+          min='0'
+          max='2'
           id="blue"
         />
         </span>
       </section>
       <button className="apply-btn themed">Apply</button>
-    </div>
+    </section>
   )
 }
