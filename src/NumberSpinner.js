@@ -7,11 +7,11 @@ export const NumberSpinner = (props) => {
     <div className="tool-container">
       <label className="label">{banner}</label>
       <section className="counter">
-        <button className="btn decrement" onClick={() => SetValue(id, min, max, -increment)}>
+        <button className="btn tool-btn left" onClick={() => SetValue(id, min, max, -increment)}>
           <i className="fa fa-minus-square" ></i>
         </button>
-        <span className="display" id={id}>{ initValue }</span>
-        <button className="btn increment" onClick={() => SetValue(id, min, max, increment)}>
+        <span className="display">{ initValue }</span>
+        <button className="btn tool-button right" onClick={() => SetValue(id, min, max, increment)}>
           <i className="fa fa-plus-square"></i>
         </button>
       </section>

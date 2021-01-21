@@ -3,17 +3,20 @@
 export const Render = () => {
   console.log('render')
 };
-export const Reset = () => {
-  console.log('reset')
+export const Clear = () => {
+  console.log('clear');
+};
+export const Random = () => {
+  console.log('random');
 };
 export const SetValue = (id, min, max, increment) => {
 
   let displayValue = document.getElementById(id);
-  let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
-
+  let value = parseFloat(displayValue.innerHTML) + parseFloat(increment);
+  console.log(value);
   // add checks
 
-  displayValue.innerHTML = value;
+  displayValue.innerHTML = value.toFixed(2);
 
   return value;
 }

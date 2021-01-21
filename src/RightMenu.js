@@ -1,6 +1,6 @@
 import { ColorPicker } from './ColorPicker';
 import { NumberSpinner } from './NumberSpinner';
-import { Reset } from './Draw';
+import { Render, Clear, Random } from './Draw';
 
 const RightMenu = () => {
   return (
@@ -8,34 +8,23 @@ const RightMenu = () => {
       
       {/* Increment values min max etc... values are commented in Draw.js with the variable declarations */}
       <ColorPicker
-        banner="Color Picker"
         id="colorPicker"
         min={0}
         max={255}
         increment="1"
         initValue={0}
       />
-
-      <NumberSpinner
-        banner="Length"
-        id="branchLength"
-        min={70}
-        max={250}
-        increment="5"
-        initValue={70}
-      />
-      <NumberSpinner
-        banner="Adjust Canvas"
-        id="adjustCanvas"
-        min={10}
-        max={20}
-        increment="1"
-        initValue={10}
-      />
-
-      <button className="btn reset-btn" onClick={() => Reset()}>
-        Reset
-      </button>
+      <section className="update-canvas">
+        <button className="btn random-btn tool-container" onClick={() => Random()}>
+          Random
+        </button>
+        <button className="btn clear-btn tool-container" onClick={() => Clear()}>
+          Clear
+        </button>
+         <button className="btn render-btn tool-container" onClick={() => Render()}>
+          Render
+        </button>
+      </section>
     </div>
   )
 }
