@@ -1,4 +1,4 @@
-import { SetValue } from './Draw';
+import { SetValue } from './ContentBody';
 
 export const NumberSpinner = (props) => {
   const {id, min ,max, increment, initValue, banner} = props;

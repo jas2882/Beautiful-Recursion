@@ -19,13 +19,13 @@ export const ColorPicker = () => {
           <input className="radio-btn-glow" type="radio" name="radio" onClick={() => console.log('check')} />
             <span className="checkMark"></span>
         </label>
-        <label className="tool-container radio-btn">Shadow
-          <input className="radio-btn-glow" type="radio" name="radio" onClick={() => console.log('check')} />
-            <span className="checkMark"></span>
-        </label>
         <label className="tool-container radio-btn">Canvas
           <input className="radio-btn-glow" type="radio" name="radio" onClick={() => console.log('check')} />
            <span className="checkMark"></span>
+        </label>
+        <label className="tool-container radio-btn">Shadow
+          <input className="radio-btn-glow" type="radio" name="radio" onClick={() => console.log('check')} />
+            <span className="checkMark"></span>
         </label>
       </div>
 
