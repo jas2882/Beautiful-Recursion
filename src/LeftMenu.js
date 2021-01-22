@@ -1,20 +1,20 @@
-import { NumberSpinner } from './NumberSpinner';
+import NumberSpinner from '../src/components/NumberSpinner';
 
 const LeftMenu = (props) => {
 
   const { strokeWidth, setLength, rotation, canvasPosition } = props;
-
+  
   console.log(strokeWidth, setLength, rotation, canvasPosition);
 
   return (
 
     <div className="side-menu-left" id="side-menu">
 
-    {/* Increment values min max etc... values are commented in Draw() of ContentBody with the variable declarations */}
+    {/* Increment values min max etc... values are commented in Draw() of ContentBody.js with the variable declarations */}
 
       <NumberSpinner
-        banner=" Stroke Length"
-        id="lineWidth"
+        banner="Stroke Length"
+        id="strokeLength"
         min={0.05}
         max={10}
         increment="0.25"
@@ -22,7 +22,7 @@ const LeftMenu = (props) => {
         />
       <NumberSpinner
         banner="Stroke Width"
-        id="lineWidth"
+        id="strokeWidth"
         min={0.05}
         max={10}
         increment="0.25"
@@ -30,7 +30,7 @@ const LeftMenu = (props) => {
         />
       <NumberSpinner
         banner="Rotation&#176;"
-        id="rotateSpinner"
+        id="rotation"
         min={30}
         max={200}
         increment="10"

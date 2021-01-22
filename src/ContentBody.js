@@ -1,4 +1,4 @@
-import Canvas from './Canvas';
+import Canvas from '../src/components/Canvas';
 import LeftMenu from './LeftMenu';
 import RightMenu from './RightMenu';
 
@@ -138,19 +138,19 @@ export const Clear = () => {
 export const Random = () => {
   console.log('random');
 };
-export const SetValue = (id, min, max, increment) => {
+export const SetValue = (id, value, min, max, increment) => {
 
   let displayValue = document.getElementById(id);
-  let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
+  //let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
   
-  console.log(value);
+  console.log(id, displayValue.value);
   
   // add checks
   if(value >= max || value <= min) {
     console.log('limits exceeded');
   }
 
-  displayValue.innerHTML = value;
+  displayValue.innerHTML = value+increment;
 
   return value;
 }
@@ -169,7 +169,9 @@ export const AdjustValue = () => {
 const ContentBody = () => {
 
   return (
+    
     <div className="content-body">
+      <>
       <LeftMenu 
         strokeWidth={strokeWidth}
         setLength={strokeLength}
@@ -190,6 +192,7 @@ const ContentBody = () => {
         opacity={opacity}
         fillStyle={fillStyle}
       />
+      </>
     </div>
   )
 }

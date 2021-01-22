@@ -1,4 +1,4 @@
-import { ColorPicker } from './ColorPicker';
+import ColorPicker from './components/ColorPicker';
 import { Render, Clear, Random } from './ContentBody';
 
 const RightMenu = (props) => {

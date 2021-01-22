@@ -1,6 +1,6 @@
 //import { SetValue } from './Draw';
 
-export const ColorPicker = () => {
+const ColorPicker = () => {
   /*
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -85,3 +85,5 @@ export const ColorPicker = () => {
     </section>
   )
 }
+
+export default ColorPicker;

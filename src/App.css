@@ -106,7 +106,7 @@ i:hover {
   transition: box-shadow 0.5s;
 }
 /* title of toolbox */
-.label {
+.banner{
   color: var(--text);
   font-size: calc(4px + 2vmin);
 }
@@ -120,15 +120,19 @@ i:hover {
 }
 /* show current values */
 .display {
+  text-align: center;
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  padding: 0 6px;
+  padding: 6px;
   display: flex;
   justify-content: center;
   font-size: calc(7px + 2vmin);
   height: auto;
-  min-width: 45px;
+  width: 35%;
+  /* min-width: 45px;
+  label
+  max-width: 65px; */
   background-color: rgba(0, 0, 0, 0.275);
   text-shadow: 0 0 10px var(--border);
 }

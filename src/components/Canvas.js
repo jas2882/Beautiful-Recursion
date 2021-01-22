@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Draw } from './ContentBody';
+import { Draw } from '../ContentBody';
 
 class Canvas extends Component {
   state = { 
