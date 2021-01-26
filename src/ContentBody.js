@@ -3,7 +3,8 @@ import LeftMenu from './LeftMenu';
 import RightMenu from './RightMenu';
 
 /* adjustable values */
-let adjustCanvas = 1;      // 1 sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
+let adjustCanvasY = 1;      // 1: FireFox sets fractal to bottom of the canvas(1.01 for cushion) 2 sets it directly in the middle
+let adjustCanvasX = 2;      // 2 centers fractal on x-axis 1000 sets to left corner
 let branchDensityLeft = 0.8; // baseline: 0.5
 let branchDensityRight = 0.8;// max: 0.85
 let degreesLeft = 30;        // baseline: 30 Increment to increase spread
@@ -18,7 +19,6 @@ let rotate = 180;            // baseline: 31
 let shadowBlur = 0;          // baseline: 15
 let shadowColor = "(rgba(0,0,0,0.8))";
 let strokeColor = '#ffffff';
-
 
 export const Draw = (props) => {
   
@@ -110,8 +110,8 @@ export const Draw = (props) => {
   
   adjustDPI();
   
-  let originX =get.style.width() / 2; // center canvas on x-axis
-  let originY =get.style.height() / adjustCanvas;  //center on y-axis <-- divide / 2 to center in middle of canvas -->
+  let originX =get.style.width() / adjustCanvasX; // center canvas on x-axis
+  let originY =get.style.height() / adjustCanvasY;  //center on y-axis <-- divide / 2 to center in middle of canvas -->
   
   //let img = <img src={fireImage} alt="fire"></img>
   //let strokeEffect = ctx.drawImage(img, originX, originY);
@@ -138,26 +138,26 @@ export const Clear = () => {
 export const Random = () => {
   console.log('random');
 };
-export const SetValue = (id, value, min, max, increment) => {
+// export const SetValue = (id, value, min, max, increment) => {
 
-  let displayValue = document.getElementById(id);
-  //let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
+//   let displayValue = document.getElementById(id);
+//   //let value = Math.floor(displayValue.innerHTML) + Math.floor(increment);
   
-  console.log(id, displayValue.value);
+//   console.log(id, displayValue.value);
   
-  // add checks
-  if(value >= max || value <= min) {
-    console.log('limits exceeded');
-  }
+//   // add checks
+//   if(value >= max || value <= min) {
+//     console.log('limits exceeded');
+//   }
 
-  displayValue.innerHTML = value+increment;
+//   displayValue.innerHTML = value+increment;
 
-  return value;
-}
+//   return value;
+// }
 export const AdjustValue = () => {
   console.log('adjusting');
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
+  let slider = document.getElementById("myRange");
+  let output = document.getElementById("demo");
   output.innerHTML = slider.value; // Display the default slider value
 
   // Update the current slider value (each time you drag the slider handle)
@@ -166,7 +166,7 @@ export const AdjustValue = () => {
 }
 }
       
-const ContentBody = () => {
+const ContentBody = (props) => {
 
   return (
     
@@ -176,7 +176,7 @@ const ContentBody = () => {
         strokeWidth={strokeWidth}
         setLength={strokeLength}
         rotation={rotate}
-        canvasPosition={adjustCanvas}
+        canvasPosition={adjustCanvasX}
       />
       <div className="canvas-section">
         <Canvas />

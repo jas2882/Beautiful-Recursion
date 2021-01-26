@@ -13,13 +13,13 @@ const RightMenu = (props) => {
       {/* Increment values min max etc... values are commented in Draw.js with the variable declarations */}
       <ColorPicker />
       <section className="update-canvas">
-        <button className="btn random-btn tool-container" onClick={() => Random()}>
+        <button className="btn random-btn themed" onClick={() => Random()}>
           Random
         </button>
-        <button className="btn clear-btn tool-container" onClick={() => Clear()}>
+        <button className="btn clear-btn themed" onClick={() => Clear()}>
           Clear
         </button>
-         <button className="btn render-btn tool-container" onClick={() => Render()}>
+         <button className="btn render-btn themed" onClick={() => Render()}>
           Render
         </button>
       </section>

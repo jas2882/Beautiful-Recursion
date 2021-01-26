@@ -2,7 +2,7 @@ import NumberSpinner from '../src/components/NumberSpinner';
 
 const LeftMenu = (props) => {
 
-  const { strokeWidth, setLength, rotation, canvasPosition } = props;
+  const { strokeWidth, setLength, rotation, canvasPosition, min, max, initValue } = props;
   
   console.log(strokeWidth, setLength, rotation, canvasPosition);
 

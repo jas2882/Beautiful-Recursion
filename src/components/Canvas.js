@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Draw } from '../ContentBody';
 
-class Canvas extends Component {
+class Canvas extends Component { 
   state = { 
     canvasId: Math.random().toString()
    };
@@ -13,7 +13,7 @@ class Canvas extends Component {
   render() { 
     return (
       <>
-        <canvas className="myCanvas" id={this.state.canvasId}></canvas>
+        <canvas className="myCanvas" id={this.state.canvasId} />
         {/* <canvas className="myCanvasBackground" id="canvasBackground"></canvas>*/}
       </> 
     );
