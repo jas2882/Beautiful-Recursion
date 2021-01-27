@@ -11,7 +11,7 @@ let degreesLeft = 30;        // baseline: 30 Increment to increase spread
 let degreesRight = -30;      // baseline: -30 Decrement to increase spread
 let fillStyle = "(rgba(0, 0, 0, 0, 0.9))";
 let inputAngle = 0           // baseline: 0
-let strokeLength = 157.5;            // baseline: 120 max:200
+let strokeLength = 155.5;            // baseline: 120 max:200
 let strokeWidth = 2;           // baseline: 0.05(needs high contrast recommend 0.1) Line width of individual branches
 let opacity = 0.07;          // 1 = no transparency 0 = full transparency
 let recursionExit = 10;      // baseline: 10 Exits function when reached <--keep above 10 for performance reasons-->
@@ -154,19 +154,19 @@ export const Random = () => {
 
 //   return value;
 // }
-export const AdjustValue = () => {
-  console.log('adjusting');
-  let slider = document.getElementById("myRange");
-  let output = document.getElementById("demo");
-  output.innerHTML = slider.value; // Display the default slider value
-
-  // Update the current slider value (each time you drag the slider handle)
-  slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-}
+// export const AdjustValue = () => {
+//   console.log('adjusting');
+//   let slider = document.getElementById("myRange");
+//   let output = document.getElementById("demo");
+//   output.innerHTML = slider.value; // Display the default slider value
+//
+//   // Update the current slider value (each time you drag the slider handle)
+//   slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
+// }
       
-const ContentBody = (props) => {
+const ContentBody = () => {
 
   return (
     

@@ -3,7 +3,7 @@ import { Draw } from '../ContentBody';
 
 class Canvas extends Component { 
   state = { 
-    canvasId: Math.random().toString()
+    canvasId: Math.random().toString() / 1
    };
    
 
