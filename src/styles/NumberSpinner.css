@@ -1,0 +1,104 @@
+.number-spinner {
+  box-sizing: border-box;
+  /*background-color: var(--secondary-grey);*/
+  border: 1px solid white;
+  height: 15vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.number-spinner h1 {
+  margin: 0;
+}
+.display {
+  padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* icons and buttons */
+i {
+    background: none;
+    height: 100%;
+    width: 100%;
+    padding: calc( 1vh - 3px );
+}
+.btn {
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: calc(8px + 2vh);
+    background: var(--background-gradient);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    width: fit-content;
+    padding: 7px;
+    margin: 0;
+    position: relative;
+}
+.btn:hover {
+    color: var(--border);
+    background: var(--op-black);
+}
+.tool-icon {
+    font-size: calc(8px + 2vh);
+    /*padding: 5px;*/
+    border-radius: var(--border-radius);
+    color: var(--text);
+    background: var(--border) none;
+}
+.tool-icon:hover {
+    background-color: var(--text);
+    color: var(--border);
+    box-shadow: var(--btn-shadow);
+}
+/* button wrapper for icons */
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    background: none;
+    /*padding: 5px;*/
+    /*height: fit-content;*/
+    border: none;
+}
+/* banner display */
+.banner {
+    color: var(--text);
+    margin-top: calc(3px + 1em);
+}
+#display {
+    font-size: calc(1em + 1vh);
+}
+/* tool counter display with icons */
+.counter {
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: calc(3px + 1vh) 0;
+}
+/* display only */
+.display {
+    text-align: center;
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 40%;
+    height: 1vh;
+    font-size: calc(7px + 2vh);
+    background-color:var(--display-bg);
+    cursor: pointer;
+}
+.display-value {
+    color: black;
+    width:50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

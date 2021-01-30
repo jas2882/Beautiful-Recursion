@@ -1,12 +1,17 @@
-import './App.css';
-import ContentBody from './ContentBody'
-
-// treat this file as a table of contents
+import '../src/styles/App.css';
+import './styles/Canvas.css';
+import './styles/ColorPicker.css'
+import './styles/index.css'
+import '../src/styles/NumberSpinner.css';
+import ContentBody from './ContentBody';
+import ThemeContextProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
     <div className="App">
-      <ContentBody />
+      <ThemeContextProvider>
+        <ContentBody />
+      </ThemeContextProvider>
     </div>
   );
 }

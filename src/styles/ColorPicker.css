@@ -1,0 +1,166 @@
+/*color-picker & right menu section*/
+.color-picker-container {
+    /*height: 60%;*/
+    position: relative;
+    padding: calc(3px + 1vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*radio-btn container*/
+.radio-container {
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    height: 30%;
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: none;
+    overflow: hidden;
+    margin: calc(3px + 2vh) 0;
+    padding: calc(3px + 1vh)
+}
+/* color picker radio buttons */
+.radio-btn {
+    box-sizing: border-box;
+    font-size: calc(7px + 1vmin);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--background-gradient);
+    /*box-shadow: var(--standard-b-shadow);*/
+    border-radius: var(--border-radius);
+    /*width: auto;*/
+    padding: calc(5px);
+    /*margin: 0;*/
+    height: auto;
+}
+.radio-btn:hover {
+    background: var(--op-black);
+    color: var(--border);
+}
+/* color display preview */
+.color-tool-display {
+    width: 100%;
+    height: 40%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: calc(3px + 2vh) 0;
+}
+.color-display {
+    background: white;
+    color: black;
+    width: 75%;
+}
+/* container for rgba sliders */
+.slide-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    margin: calc(3px + 1vh) 0;
+    padding: 0 15px;
+}
+.slider-value {
+    margin: 0 calc(4px + 1vh);
+}
+.color-slider {
+    margin: calc(3px + 1vh) 0;
+    padding: 5px;
+    width: 100%;
+    background-color: var(--op-black);
+    border-radius: var(--border-radius);
+}
+.color-slider:hover {
+    background-color: var(--op-black-hover);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.color-slider input {
+    background-color:var(--op-black);
+    margin: 10px;
+    border: none;
+    height: 5px; /* thumb slider */
+}
+#red {
+    background: red;
+}
+#green {
+    background: green;
+}
+#blue {
+    background: blue;
+}
+#red:hover {
+    box-shadow: 0 0 30px 2px red;
+}
+#green:hover {
+    box-shadow: 0 0 30px 2px green;
+}
+#blue:hover {
+    box-shadow: 0 0 30px 2px blue;
+}
+/* update canvas */
+.update-canvas {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items:center;
+    gap: 15px;
+    margin: calc(3px + 2vh) 0;
+}
+/* web-kits */
+/* fire-fox green */
+/* slider thumb */
+input[type=range]::-moz-range-thumb {
+    cursor: pointer;
+    height: 10px;
+    background: var(--canvas-bg);
+    background-color: var(--op-black); /* inner thumb */
+    border: 5px outset var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--standard-b-shadow-hover);
+}
+/* slider */
+input[type=range]::-moz-range-track {
+    cursor: pointer;
+    border: none;
+}
+/* chrome, opera, and edge */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    margin-top: -5px;
+    cursor: pointer;
+    background: var(--canvas-bg);
+    background-color: var(--op-black); /* inner thumb */
+    border: 5px outset var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--standard-b-shadow-hover);
+}
+/* chrome, opera, and edge */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
+    /*background: white;*/
+    border-radius: var(--border-radius);
+    border: 1px solid #010101;
+}
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* white in Chrome */
+}
+input[type=range]:focus {
+    outline: none;
+    background-color: pink;
+}
