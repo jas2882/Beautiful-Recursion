@@ -1,3 +1,9 @@
+/*extra tools in right menu*/
+.tools-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 /*color-picker & right menu section*/
 .color-picker-container {
     /*height: 60%;*/
@@ -9,43 +15,24 @@
 }
 /*radio-btn container*/
 .radio-container {
-    box-sizing: border-box;
-    border: none;
-    width: 100%;
-    height: 30%;
-    gap: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    box-shadow: none;
-    overflow: hidden;
-    margin: calc(3px + 2vh) 0;
-    padding: calc(3px + 1vh)
-}
-/* color picker radio buttons */
-.radio-btn {
-    box-sizing: border-box;
-    font-size: calc(7px + 1vmin);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--background-gradient);
-    /*box-shadow: var(--standard-b-shadow);*/
-    border-radius: var(--border-radius);
-    /*width: auto;*/
-    padding: calc(5px);
-    /*margin: 0;*/
-    height: auto;
-}
-.radio-btn:hover {
-    background: var(--op-black);
-    color: var(--border);
+  /*color: inherit;*/
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: 30%;
+  /*gap: 5px;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: none;
+  overflow: hidden;
+  margin: calc(3px + 2vh) 0;
+  padding: calc(3px + 1vh)
 }
 /* color display preview */
 .color-tool-display {
     width: 100%;
-    height: 40%;
+    /*height: 40%;*/
     border: none;
     background-color: transparent;
     display: flex;
@@ -89,7 +76,7 @@
     height: 5px; /* thumb slider */
 }
 #red {
-    background: red;
+    background: deeppink;
 }
 #green {
     background: green;
@@ -107,9 +94,9 @@
     box-shadow: 0 0 30px 2px blue;
 }
 /* update canvas */
-.update-canvas {
+.aside-menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content:space-evenly;
     align-items:center;
     gap: 15px;

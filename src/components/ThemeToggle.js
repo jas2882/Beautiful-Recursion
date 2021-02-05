@@ -8,12 +8,28 @@ class ThemeToggle extends Component {
   render() {
     const { toggleTheme } = this.context;
     return(
-      <button
-        className="themed theme-toggle"
-        onClick={toggleTheme}
-      >
-        <i className="fa fa-adjust" />
-      </button>
+      <ThemeContext.Consumer>{(context) => {
+        const { isLightTheme, light, dark } = context;
+        const theme = isLightTheme ? light : dark;
+        return (
+          <button
+            style={{
+              background: "none",
+              border: 'none'
+            }}
+            onClick={toggleTheme}
+          >
+            <i
+              style={{
+                border: theme.border,
+                color: theme.primaryBg,
+                background: theme.primaryContrast,
+              }}
+              className="icon-btn fa fa-adjust"
+            />
+          </button>
+        );}}
+      </ThemeContext.Consumer>
     )
   }
 }

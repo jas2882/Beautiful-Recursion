@@ -1,7 +1,8 @@
-import ColorPicker from "../components/ColorPicker";
+
 import React, { useContext } from 'react';
 import { ThemeContext }  from '../contexts/ThemeContext';
 import ThemeToggle from "./ThemeToggle";
+import NumberSpinner from "./NumberSpinner";
 //import {Clear, Random, Render} from "../ContentBody";
 
 
@@ -14,6 +15,16 @@ const RightMenu = (props) => {
 
   const { isLightTheme, light, dark } = theme;
   theme = isLightTheme ? light : dark;
+
+  let data = props.value;
+  const menuConstruction = [];
+
+  for (let each of data) {
+    if(each.location === 'right-menu') {
+      //console.log(menuConstruction);
+      menuConstruction.push(<NumberSpinner {...each} />);
+    }
+  }
 
   //const {
     // strokeColor,
@@ -34,24 +45,30 @@ const RightMenu = (props) => {
   //)
 
   return (
-     <aside
-      style={{background: theme.ui, color: theme.syntax}}
+    <aside
+      style={{
+        background: theme.primaryBg,
+      }}
       className="right-menu-right"
       id="side-menu"
       >
-      <ThemeToggle />
-      <ColorPicker />
-       <section className="update-canvas">
-         <button className="btn random-btn themed" onClick={() => console.log('random')}>
-           Random
-         </button>
-         <button className="btn clear-btn themed" onClick={() => console.log('clear')}>
-           Clear
-         </button>
-         <button className="btn render-btn themed" onClick={() => console.log('render')}>
-           Render
-         </button>
-       </section>
+        { menuConstruction }
+        {/*<ColorPicker />*/}
+      <section className="aside-menu">
+        <ThemeToggle />
+        <button
+          style={{
+            fontSize: '1.5em',
+            border: theme.border,
+            color: theme.primaryBg,
+            backgroundColor: theme.primaryContrast,
+          }}
+          className="btn themed"
+          onClick={() => console.log('clear')}
+        >
+          Reset
+        </button>
+      </section>
     </aside>
   )
 }

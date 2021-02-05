@@ -11,12 +11,12 @@ const Draw = (props) => {
 
   const data = props.values;
   const parsedData = {};
-
+  //console.log(data);
   for (let each of data) {
     parsedData[each.id] = each.value;
   }
 
-  const {
+  let {
     strokeWidth,
     strokeColor,
     fillStyle,
@@ -144,7 +144,7 @@ class Canvas extends Component {
         const theme = isLightTheme ? light : dark;
         return (
             <canvas
-              style={{ background: theme.canvasBg }}
+              style={{ background: theme.canvasBg, color: theme.primaryContrast }}
               className="canvas"
               id={ this.state.canvasId }
             />

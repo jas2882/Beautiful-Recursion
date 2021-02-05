@@ -1,49 +1,58 @@
 :root {
-    --text: rgb(255, 255, 255);
-    --btn-shadow: 0 0 14px var(--border);
-    --hover-zoom: scale(1.05);
-    --display-bg:  rgba(0, 0, 0, 0.275);
-    --primary-color: #486685;
-    --secondary-color: #282c34;
-    --border: #ff2f14;
-    --gradient-match: #1a2031da;
-    --hover: #314c66;
-    --op-black:  rgba(0, 0, 0, 0.542);
-    --op-black-hover:  rgba(0, 0, 0, 0.801);
-    --border-radius: 5px;
-    --canvas-bg:
-            radial-gradient(
-                    ellipse farthest-side at top,
-                    #73646e 0,
-                    #3c3237 100%
-            );
-    --standard-b-shadow: 0 0 50px 1px #486685 inset;
-    --standard-b-shadow-hover: 0 0 40px 1px #486685;
-    --background-gradient:
-            radial-gradient(
-                    ellipse at center,
-                    #282c34 0,
-                    #1f263b 100%
-            );
-    --lrg-background-gradient:
-            radial-gradient(
-                    ellipse at center,
-                    var(--op-black) 0,
-                    #131724 100%
-            );
+  --d-text: #ddd;
+  --l-text: #555;
+  --btn-shadow: 0 0 14px var(--border);
+  --hover-zoom: scale(1.05);
+  --display-bg:  rgba(0, 0, 0, 0.275);
+  --primary-color: #486685;
+  --secondary-color: #282c34;
+  --border: #ff2f14;
+  --gradient-match: #1a2031da;
+  --hover: #314c66;
+  --white: white;
+  --op-black:  rgba(0, 0, 0, 0.542);
+  --op-black-hover:  rgba(0, 0, 0, 0.801);
+  --border-radius: 5px;
+  --canvas-bg:
+          radial-gradient(ellipse farthest-side at top, #73646e 0, #3c3237 100%);
+  --standard-b-shadow: 0 0 2px 1px var(--border) inset;
+  --standard-b-shadow-hover: 0 0 40px 1px #486685;
+  --background-gradient:
+          radial-gradient(
+                  ellipse at center,
+                  #282c34 0,
+                  #1f263b 100%
+          );
+  --lrg-background-gradient:
+          radial-gradient(
+                  ellipse at center,
+                  var(--op-black) 0,
+                  #131724 100%
+          );
 }
+/*background: #FFFFFFDA;*/
+/*background: -webkit-radial-gradient(center, #FFFFFFDA, #4A63A8DA);*/
+/*background: -moz-radial-gradient(center, #FFFFFFDA, #4A63A8DA);*/
+/*background: radial-gradient(ellipse at center, #FFFFFFDA, #4A63A8DA);
+background: #FFFFFF;
+background: -webkit-radial-gradient(center, #FFFFFF, #FF2F15);
+background: -moz-radial-gradient(center, #FFFFFF, #FF2F15);
+background: radial-gradient(ellipse at center, #FFFFFF, #FF2F15);
+background: #FFFFFF;
+background: -webkit-radial-gradient(center, #FFFFFF, #486785);
+background: -moz-radial-gradient(center, #FFFFFF, #486785);
+background: radial-gradient(ellipse at center, #FFFFFF, #486785);
+background: #949494;
+background: -webkit-radial-gradient(center, #949494, #FFFFFF);
+background: -moz-radial-gradient(center, #949494, #FFFFFF);
+background: radial-gradient(ellipse at center, #949494, #FFFFFF);
+*/
 .App {
   text-align: center;
   min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-}
-.hamburger-menu {
-  margin: 0;
-}
-.theme-toggle {
-  margin: 0;
 }
 .content-body {
   position: relative;
@@ -53,22 +62,14 @@
   flex-direction: row;
 }
 #side-menu {
-    /*padding: 1vh;*/
-    /*width: 17%;*/
-    /*min-height: 100%;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*color: white;*/
-    overflow: scroll;
-    box-sizing: border-box;
-    width: 15vw;
-    height: 100vh;
-    padding: calc(3px + 1vw);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  overflow: scroll;
+  box-sizing: border-box;
+  width: 20vw;
+  height: 100vh;
+  padding: calc(3px + 1vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .left-menu {
 
@@ -89,20 +90,74 @@
 }
 /* components shared theme */
 .themed {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    color: var(--text);
-    background: var(--background-gradient);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    margin-bottom: calc(1em + 0.5vh);
-    transition: box-shadow 0.7s, transform 0.4s;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  background: var(--background-gradient);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  /*margin-bottom: calc(0.5em + 0.5vh);*/
 }
 .themed:hover {
-    box-shadow: var(--standard-b-shadow-hover);
-    transform: var(--hover-zoom);
+  /*box-shadow: var(--standard-b-shadow-hover);*/
+  /*transform: var(--hover-zoom);*/
+  /*margin: calc(2em + 1vh) 0;*/
+}
+.mutation {
+  transition: box-shadow 0.7s, transform 0.4s;
+}
+.mutation:hover {
+  box-shadow: var(--standard-b-shadow-hover);
+  transform: var(--hover-zoom);
+}
+/* buttons and icons*/
+.btn {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /*background: var(--background-gradient);*/
+  /*background-color: var(--background-gradient);*/
+  /*box-shadow: var(--standard-b-shadow);*/
+  border-radius: var(--border-radius);
+  height: auto;
+  width: fit-content;
+  padding: 7px;
+  position: relative;
+}
+.btn:hover {
+  background: white;
+  color: green;
+}
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1.5em;
+  flex-direction: column;
+  align-items: center;
+  /*background: var(--background-gradient);*/
+  /*background-color: var(--background-gradient);*/
+  /*box-shadow: var(--standard-b-shadow);*/
+  border-radius: var(--border-radius);
+  height: auto;
+  width: fit-content;
+  padding: 7px;
+  position: relative;
+}
+.icon-btn:hover {
+  background: none;
+  color: var(--border);
+  box-shadow: var(--btn-shadow);
+}
+i {
+  background-color: red;
 }

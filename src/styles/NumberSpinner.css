@@ -2,14 +2,15 @@
   box-sizing: border-box;
   /*background-color: var(--secondary-grey);*/
   border: 1px solid white;
-  height: 15vh;
-  padding: 10px;
+  /*height: 15vh;*/
+  /*padding: 5px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 1vh;
 }
 .number-spinner h1 {
   margin: 0;
@@ -53,7 +54,7 @@ i {
     background: var(--border) none;
 }
 .tool-icon:hover {
-    background-color: var(--text);
+    /* */
     color: var(--border);
     box-shadow: var(--btn-shadow);
 }
@@ -68,8 +69,7 @@ i {
 }
 /* banner display */
 .banner {
-    color: var(--text);
-    margin-top: calc(3px + 1em);
+    margin-top: 1vh;
 }
 #display {
     font-size: calc(1em + 1vh);
