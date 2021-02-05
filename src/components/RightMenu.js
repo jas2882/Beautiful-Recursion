@@ -1,13 +1,7 @@
-
+import AppManager from './AppManager';
 import React, { useContext } from 'react';
 import { ThemeContext }  from '../contexts/ThemeContext';
 import ThemeToggle from "./ThemeToggle";
-import NumberSpinner from "./NumberSpinner";
-//import {Clear, Random, Render} from "../ContentBody";
-
-
-
-
 
 const RightMenu = (props) => {
 
@@ -16,34 +10,6 @@ const RightMenu = (props) => {
   const { isLightTheme, light, dark } = theme;
   theme = isLightTheme ? light : dark;
 
-  let data = props.value;
-  const menuConstruction = [];
-
-  for (let each of data) {
-    if(each.location === 'right-menu') {
-      //console.log(menuConstruction);
-      menuConstruction.push(<NumberSpinner {...each} />);
-    }
-  }
-
-  //const {
-    // strokeColor,
-    // fillStyle,
-    // opacity,
-    // shadowColor,
-  //} = props.value;
-
-  // console.log(
-  //   props.value,
-    // strokeColor,
-    // fillStyle,
-    // opacity,
-    // shadowColor,
-    //isLightTheme,
-    //light,
-    //dark
-  //)
-
   return (
     <aside
       style={{
@@ -51,9 +17,9 @@ const RightMenu = (props) => {
       }}
       className="right-menu-right"
       id="side-menu"
-      >
-        { menuConstruction }
-        {/*<ColorPicker />*/}
+    >
+      <AppManager />
+      {/*<ColorPicker />*/}
       <section className="aside-menu">
         <ThemeToggle />
         <button

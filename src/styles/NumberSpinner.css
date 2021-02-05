@@ -32,7 +32,7 @@ i {
 .btn {
     box-sizing: border-box;
     cursor: pointer;
-    font-size: calc(8px + 2vh);
+    /*font-size: calc(8px + 2vh);*/
     background: var(--background-gradient);
     border: 1px solid var(--border);
     border-radius: var(--border-radius);

@@ -30,23 +30,6 @@
                   #131724 100%
           );
 }
-/*background: #FFFFFFDA;*/
-/*background: -webkit-radial-gradient(center, #FFFFFFDA, #4A63A8DA);*/
-/*background: -moz-radial-gradient(center, #FFFFFFDA, #4A63A8DA);*/
-/*background: radial-gradient(ellipse at center, #FFFFFFDA, #4A63A8DA);
-background: #FFFFFF;
-background: -webkit-radial-gradient(center, #FFFFFF, #FF2F15);
-background: -moz-radial-gradient(center, #FFFFFF, #FF2F15);
-background: radial-gradient(ellipse at center, #FFFFFF, #FF2F15);
-background: #FFFFFF;
-background: -webkit-radial-gradient(center, #FFFFFF, #486785);
-background: -moz-radial-gradient(center, #FFFFFF, #486785);
-background: radial-gradient(ellipse at center, #FFFFFF, #486785);
-background: #949494;
-background: -webkit-radial-gradient(center, #949494, #FFFFFF);
-background: -moz-radial-gradient(center, #949494, #FFFFFF);
-background: radial-gradient(ellipse at center, #949494, #FFFFFF);
-*/
 .App {
   text-align: center;
   min-height: 100vh;
@@ -78,10 +61,6 @@ background: radial-gradient(ellipse at center, #949494, #FFFFFF);
 
 }
 .canvas {
-  /*background: #B0FFF9;*/
-  /*background: -moz-radial-gradient(center, #B0FFF9 0%, #33FFF6 43%, #1FA8FF 100%);*/
-  /*background: -webkit-radial-gradient(center, #B0FFF9 0%, #33FFF6 43%, #1FA8FF 100%);*/
-  /*background: radial-gradient(ellipse at center, #B0FFF9 0%, #33FFF6 43%, #1FA8FF 100%);*/
   min-height: 100%;
   display: flex;
   flex-direction: column;

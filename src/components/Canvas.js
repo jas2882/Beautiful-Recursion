@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CanvasContext from "../contexts/CanvasContext";
+//import CanvasContext from "../contexts/CanvasContext";
 import { GenerateKey } from './Tools';
 import { ThemeContext } from "../contexts/ThemeContext";
+import { ComponentContext} from "../contexts/CanvasComponentContext";
 
 const Draw = (props) => {
 
@@ -9,9 +10,11 @@ const Draw = (props) => {
   const canvas = canvasObj(document.getElementById(canvasElement));
   const { ctx, dpi, set, get } = canvas;
 
-  const data = props.values;
+  const data = props.values.components;
   const parsedData = {};
-  //console.log(data);
+
+  console.log(data.components, props.values.components);
+
   for (let each of data) {
     parsedData[each.id] = each.value;
   }
@@ -131,7 +134,7 @@ class Canvas extends Component {
     canvasId: GenerateKey()
   };
 
-  static contextType = CanvasContext;
+  static contextType = ComponentContext;
 
   componentDidMount() {
     Draw({ canvasElement: this.state.canvasId, values:this.context})
@@ -143,11 +146,11 @@ class Canvas extends Component {
         const { isLightTheme, light, dark } = context;
         const theme = isLightTheme ? light : dark;
         return (
-            <canvas
-              style={{ background: theme.canvasBg, color: theme.primaryContrast }}
-              className="canvas"
-              id={ this.state.canvasId }
-            />
+          <canvas
+            style={{ background: theme.canvasBg, color: theme.primaryContrast }}
+            className="canvas"
+            id={ this.state.canvasId }
+          />
         );}}
       </ThemeContext.Consumer>
     );

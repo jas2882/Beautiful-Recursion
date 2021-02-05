@@ -11,9 +11,9 @@ const ContentBody = () => {
   return (
     <CanvasContext.Provider value={CanvasValues}>
       <div className="content-body">
-        <LeftMenu value={CanvasValues} />
-        <Canvas />
-        <RightMenu value={CanvasValues} />
+        {/*<LeftMenu value={CanvasValues} />*/}
+        {/*<Canvas />*/}
+        {/*<RightMenu value={CanvasValues} />*/}
       </div>
     </CanvasContext.Provider>
   )

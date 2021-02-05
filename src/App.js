@@ -1,19 +1,30 @@
-import '../src/styles/App.css';
-import './styles/Canvas.css';
-import './styles/ColorPicker.css'
-import './styles/index.css'
-import '../src/styles/NumberSpinner.css';
-import ContentBody from './ContentBody';
+//import AppManager from "./AppManager";
+import './styles/App.css';
+import './styles/NumberSpinner.css';
+import './styles/Canvas.css'
+import Canvas from './components/Canvas';
+import {ComponentContextProvider} from "./contexts/CanvasComponentContext";
+import LeftMenu from './components/LeftMenu';
+import RightMenu from './components/RightMenu';
+import React from "react";
 import ThemeContextProvider from "./contexts/ThemeContext";
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <ThemeContextProvider>
-        <ContentBody />
+        <ComponentContextProvider>
+          <div className="content-body">
+            <LeftMenu />
+            <Canvas />
+            <RightMenu />
+          </div>
+        </ComponentContextProvider>
       </ThemeContextProvider>
     </div>
   );
 }
 
 export default App;
+//app, canvas
