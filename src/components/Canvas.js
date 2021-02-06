@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-//import CanvasContext from "../contexts/CanvasContext";
+import React, { useContext, useEffect } from 'react';
 import { GenerateKey } from './Tools';
 import { ThemeContext } from "../contexts/ThemeContext";
-import { ComponentContext} from "../contexts/CanvasComponentContext";
+import { ComponentContext } from "../contexts/CanvasComponentContext";
 
 const Draw = (props) => {
 
@@ -10,10 +9,9 @@ const Draw = (props) => {
   const canvas = canvasObj(document.getElementById(canvasElement));
   const { ctx, dpi, set, get } = canvas;
 
+
   const data = props.values.components;
   const parsedData = {};
-
-  console.log(data.components, props.values.components);
 
   for (let each of data) {
     parsedData[each.id] = each.value;
@@ -129,32 +127,34 @@ const Draw = (props) => {
   paintCanvas(originX, originY, strokeLength, inputAngle);
 }
 
-class Canvas extends Component {
-  state = {
-    canvasId: GenerateKey()
-  };
+const Canvas = () => {
 
-  static contextType = ComponentContext;
+  const canvasId = GenerateKey();
 
-  componentDidMount() {
-    Draw({ canvasElement: this.state.canvasId, values:this.context})
-  }
+  const state = useContext(ComponentContext);
 
-  render() {
-    return (
-      <ThemeContext.Consumer>{(context) => {
-        const { isLightTheme, light, dark } = context;
-        const theme = isLightTheme ? light : dark;
-        return (
-          <canvas
-            style={{ background: theme.canvasBg, color: theme.primaryContrast }}
-            className="canvas"
-            id={ this.state.canvasId }
-          />
-        );}}
-      </ThemeContext.Consumer>
-    );
-  }
+  useEffect(()=>{
+    Draw({ canvasElement: canvasId, values:state})
+  })
+
+  return (
+    <ThemeContext.Consumer>{(context) => {
+
+      const { isLightTheme, light, dark } = context;
+      const theme = isLightTheme ? light : dark;
+
+      return (
+        <canvas
+          style={{
+            background: theme.canvasBg,
+            color: theme.primaryContrast
+          }}
+          className="canvas"
+          id={ canvasId }
+        />);
+    }}
+    </ThemeContext.Consumer>
+  );
 }
 
 export default Canvas;

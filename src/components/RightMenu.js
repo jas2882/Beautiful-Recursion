@@ -1,9 +1,9 @@
-import AppManager from './AppManager';
+import SpinManager from './SpinManager';
 import React, { useContext } from 'react';
 import { ThemeContext }  from '../contexts/ThemeContext';
 import ThemeToggle from "./ThemeToggle";
 
-const RightMenu = (props) => {
+const RightMenu = () => {
 
   let theme = useContext(ThemeContext);
 
@@ -18,8 +18,8 @@ const RightMenu = (props) => {
       className="right-menu-right"
       id="side-menu"
     >
-      <AppManager />
-      {/*<ColorPicker />*/}
+      <SpinManager isLeft={false}/>
+
       <section className="aside-menu">
         <ThemeToggle />
         <button

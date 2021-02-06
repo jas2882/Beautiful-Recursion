@@ -1,14 +1,11 @@
-//import AppManager from "./AppManager";
 import './styles/App.css';
 import './styles/NumberSpinner.css';
-import './styles/Canvas.css'
 import Canvas from './components/Canvas';
-import {ComponentContextProvider} from "./contexts/CanvasComponentContext";
+import { ComponentContextProvider } from "./contexts/CanvasComponentContext";
 import LeftMenu from './components/LeftMenu';
-import RightMenu from './components/RightMenu';
 import React from "react";
+import RightMenu from './components/RightMenu';
 import ThemeContextProvider from "./contexts/ThemeContext";
-
 
 function App() {
   return (
@@ -27,4 +24,3 @@ function App() {
 }
 
 export default App;
-//app, canvas

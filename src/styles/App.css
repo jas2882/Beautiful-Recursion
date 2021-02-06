@@ -44,8 +44,9 @@
   display: flex;
   flex-direction: row;
 }
+/* both sides */
 #side-menu {
-  overflow: scroll;
+  overflow: auto;
   box-sizing: border-box;
   width: 20vw;
   height: 100vh;
@@ -54,14 +55,16 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.left-menu {
-
+.aside-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.right-menu {
-
-}
+/* display for fractal */
 .canvas {
-  min-height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

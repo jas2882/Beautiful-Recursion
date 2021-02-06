@@ -1,9 +1,9 @@
-import AppManager from './AppManager';
+import SpinManager from './SpinManager';
 import React, { useContext } from 'react';
 //import NumberSpinner from '../components/NumberSpinner';
 import { ThemeContext } from '../contexts/ThemeContext';
 
-const LeftMenu = (props) => {
+const LeftMenu = () => {
 
   let theme = useContext(ThemeContext);
 
@@ -30,7 +30,7 @@ const LeftMenu = (props) => {
         background: theme.primaryBg,
       }}
     >
-      <AppManager />
+        <SpinManager isLeft={true} />
       <div className="aside-menu">
         <button
           style={{

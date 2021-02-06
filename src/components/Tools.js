@@ -7,24 +7,3 @@ export const GenerateKey = () => {
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );
 };
-
-// export const ButtonPlus = () => {
-//
-//   return(
-//     <button
-//       style={{
-//         background: "none",
-//         border: 'none'
-//       }}
-//       //onClick={ Increase(currentValue) }
-//     >
-//       <i
-//         style={{
-//           //border: theme.border,
-//           //color: theme.primaryBg,
-//           //backgroundColor: theme.primaryContrast,
-//         }}
-//         className="icon-btn fa fa-plus" />
-//     </button>
-//   )
-// }
