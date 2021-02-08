@@ -36,6 +36,7 @@ const Draw = (props) => {
     inputAngle,
   } = parsedData;
 
+
   // Credit to Zachary Frisch on codePen for canvas dpi adjustment
   function canvasObj(element) {
     let returnable = {
@@ -147,7 +148,7 @@ const Canvas = () => {
         <canvas
           style={{
             background: theme.canvasBg,
-            color: theme.primaryContrast
+            color: theme.primaryContrast,
           }}
           className="canvas"
           id={ canvasId }

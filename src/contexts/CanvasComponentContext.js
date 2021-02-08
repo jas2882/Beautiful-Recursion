@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GenerateKey } from '../components/Tools';
 
 const defaults = {
+
   components: [
     {
       banner: "Angle",
@@ -10,8 +11,9 @@ const defaults = {
       increment: 1,
       min: -20,
       max: 20,
-      location: "left-menu",
+      location: "undecided-menu",
       key: GenerateKey(),
+      style: "slider"
     },
     {
       banner: "Stroke Length",
@@ -22,6 +24,7 @@ const defaults = {
       max: 200,
       key: GenerateKey(),
       location: "left-menu",
+      style: "spinner"
     },
     {
       banner: "Stroke Width",
@@ -32,9 +35,10 @@ const defaults = {
       max: 25,
       key: GenerateKey(),
       location: "left-menu",
+      style: "spinner"
     },
     {
-      banner: "Rotate",
+      banner: "Stroke Rotation",
       id: "rotate",
       value: 300,
       increment: 10,
@@ -42,9 +46,10 @@ const defaults = {
       max: 2000,
       key: GenerateKey(),
       location: "left-menu",
+      style: "spinner"
     },
     {
-      banner: "Recursion",
+      banner: "Exit Recursion",
       id: "recursionExit",
       value: 10,
       initValue: 10,
@@ -53,28 +58,7 @@ const defaults = {
       max: 25,
       key: GenerateKey(),
       location: "left-menu",
-    },
-    {
-      banner: "Adjust Canvas",
-      id: "adjustCanvasY",
-      value: 1,
-      initValue: 1,
-      increment: 0.1,
-      min: 1,
-      max: 2,
-      key: GenerateKey(),
-      type: "canvas",
-    },
-    {
-      banner: "Adjust Canvas",
-      id: "adjustCanvasX",
-      value: 2,
-      initValue: 1,
-      increment: 0.1,
-      min: 1.5,
-      max: 2.5,
-      key: GenerateKey(),
-      type: "canvas",
+      style: "spinner"
     },
     {
       banner: "Branch Density L",
@@ -85,7 +69,8 @@ const defaults = {
       min: 0.5,
       max: 1.5,
       key: GenerateKey(),
-      location: "right-menu",
+      location: "left-menu",
+      style: "spinner"
     },
     {
       banner: "Branch Density R",
@@ -96,7 +81,8 @@ const defaults = {
       min: 0.5,
       max: 1.5,
       key: GenerateKey(),
-      location: "right-menu",
+      location: "left-menu",
+      style: "spinner"
     },
     {
       banner: "Branch Angle L ",
@@ -109,6 +95,7 @@ const defaults = {
       max: 50,
       key: GenerateKey(),
       location: "right-menu",
+      style: "spinner"
     },
     {
       banner: "Branch Angle R",
@@ -121,6 +108,7 @@ const defaults = {
       max: 50,
       key: GenerateKey(),
       location: "right-menu",
+      style: "spinner"
     },
     {
       banner: "Fill Style",
@@ -129,17 +117,18 @@ const defaults = {
       key: GenerateKey(),
       type: "color",
       location: "right-menu",
+      style: "color"
     },
     {
       banner: "Opacity",
       id: "opacity",
-      value: 0.07,
-      initValue: 0.07,
-      increment: 0.01,
+      value: 0.1,
+      increment: 0.1,
       min: 0,
       max: 1,
       key: GenerateKey(),
-      location: "left-menu",
+      location: "right-menu",
+      style: "spinner"
     },
     {
       banner: "Shadow Blur",
@@ -151,6 +140,7 @@ const defaults = {
       max: 1,
       key: GenerateKey(),
       location: "undecided-menu",
+      style: "spinner"
     },
     {
       banner: "Shadow Color",
@@ -158,6 +148,7 @@ const defaults = {
       value: "(rgba(0,0,0,0.8))",
       key: GenerateKey(),
       location: "undecided-menu",
+      style: "color"
     },
     {
       banner: "Stroke Color",
@@ -165,10 +156,41 @@ const defaults = {
       value: '#000',
       key: GenerateKey(),
       location: "right-menu",
+      style: "color",
+      colors: [
+        "#FFF",
+        "#000"
+      ]
+    },
+    {
+      banner: "Adjust Y Axis",
+      id: "adjustCanvasY",
+      value: 1,
+      initValue: 1,
+      increment: 0.1,
+      min: 1,
+      max: 2,
+      key: GenerateKey(),
+      type: "canvas",
+      location: "right-menu",
+      style: "slider"
+    },
+    {
+      banner: "Adjust X Axis",
+      id: "adjustCanvasX",
+      value: 2,
+      initValue: 1,
+      increment: 0.1,
+      min: 1.5,
+      max: 2.5,
+      key: GenerateKey(),
+      type: "canvas",
+      location: "right-menu",
+      style: "slider"
     },
   ]
 }
-
+ console.log(defaults.components[6].value);
 export const ComponentContext = React.createContext({
   components: [],
   updateComponent: () => {}
@@ -184,6 +206,7 @@ export const ComponentContextProvider = (props) => {
         c.value += increment
       }
     });
+
 
     setState({...state, components: localComponents})
   }

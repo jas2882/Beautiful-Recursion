@@ -16,7 +16,8 @@ const NumberSpinner = props => {
       { value => {
 
       const comp = value.components.filter(c => c.id === id)[0];
-
+      const displayValue = Math.round( ( comp.value + Number.EPSILON ) * 100 ) / 100
+      ;
       return (
         <div
           className="number-spinner"
@@ -32,6 +33,7 @@ const NumberSpinner = props => {
           >
             { comp.banner }
           </label>
+
 
           <section className="counter">
             <button
@@ -55,9 +57,8 @@ const NumberSpinner = props => {
                 }}
                 className="display"
                 id="canvas-value"
-                onChange={ ()=>console.log(props.value) }
               >
-                { comp.value }
+                { displayValue }
               </span>
             <button
               style={{ background: 'none', border: 'none'}}
