@@ -21,7 +21,7 @@ const defaults = {
       value: 150,
       increment: 5,
       min: 0,
-      max: 200,
+      max: 300,
       key: GenerateKey(),
       location: "left-menu",
       style: "spinner"
@@ -90,8 +90,8 @@ const defaults = {
       degreesLeft: 30,
       initValue: 30,
       increment: 1,
-      min: 20,
-      max: 50,
+      min: 0,
+      max: 100,
       key: GenerateKey(),
       location: "right-menu",
       style: "spinner"
@@ -101,10 +101,9 @@ const defaults = {
       id: "degreesRight",
       value: -25,
       degreesRight: -30,
-      initValue: 30,
       increment: 1,
-      min: 20,
-      max: 50,
+      min: -100,
+      max: 0,
       key: GenerateKey(),
       location: "right-menu",
       style: "spinner"
@@ -192,7 +191,7 @@ const defaults = {
     },
   ]
 }
- console.log(defaults.components[6].value);
+ //console.log(defaults.components[6].value);
 export const ComponentContext = React.createContext({
   components: [],
   updateComponent: () => {}
@@ -205,8 +204,9 @@ export const ComponentContextProvider = (props) => {
 
     localComponents.forEach(c => {
       if (c.id === id) {
-        c.value += increment
-      }
+        if((increment < 0 && c.value > c.min) || (increment > 0 && c.value < c.max)) {
+           c.value += increment
+      }}
     });
     setState({...state, components: localComponents})
   }

@@ -78,8 +78,14 @@ const NumberSpinner = props => {
                 { displayValue }
               </span>
 
-                <input type="range" min={comp.min} max={comp.max} value={comp.value} className="slider" id="myRange"
-                  onChange={() => value.updateComponent(id, comp.increment)}
+                <input type="range"
+                       min={comp.min}
+                       max={comp.max}
+                       value={comp.value}
+                       step={comp.increment}
+                       className="slider"
+                       id="myRange"
+                       //onInput={() => value.updateComponent(id, comp.increment)}
                 />
               </div>
             </>
@@ -89,7 +95,7 @@ const NumberSpinner = props => {
           console.log(comp.colors)
           return (
             <>
-              <h1 style={{color: theme.primaryPop, border: theme.border}}>Coming Soon</h1>
+              <h1 style={{color: theme.primaryPop}}>Coming Soon</h1>
             </>
           )
         }
