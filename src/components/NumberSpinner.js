@@ -89,11 +89,11 @@ const NumberSpinner = props => {
           console.log(comp.colors)
           return (
             <>
-              <h1 style={{color: theme.primaryPop}}>Coming Soon</h1>
+              <h1 style={{color: theme.primaryPop, border: theme.border}}>Coming Soon</h1>
             </>
           )
         }
-        return <h1>Error</h1>
+        return <h1 style={{color: theme.primaryPop}}>Error</h1>
       }
 
       return (

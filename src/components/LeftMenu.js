@@ -40,7 +40,7 @@ const LeftMenu = () => {
             backgroundColor: theme.primaryContrast,
           }}
           className="btn themed"
-          onClick={() => console.log('random')}
+          onClick={() => alert('Randomize Coming Soon')}
         >
           Random
         </button>

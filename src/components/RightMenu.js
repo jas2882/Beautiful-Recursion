@@ -30,7 +30,7 @@ const RightMenu = () => {
             backgroundColor: theme.primaryContrast,
           }}
           className="btn themed"
-          onClick={() => console.log('clear')}
+          onClick={() => alert('Reset Coming Soon')}
         >
           Reset
         </button>
