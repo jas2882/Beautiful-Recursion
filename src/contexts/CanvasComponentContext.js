@@ -111,15 +111,6 @@ const defaults = {
       style: "spinner"
     },
     {
-      banner: "Fill Style",
-      id: "fillStyle",
-      value: "(rgba(0, 0, 0, 0, 0.9))",
-      key: GenerateKey(),
-      type: "color",
-      location: "right-menu",
-      style: "color"
-    },
-    {
       banner: "Opacity",
       id: "opacity",
       value: 0.1,
@@ -129,6 +120,31 @@ const defaults = {
       key: GenerateKey(),
       location: "right-menu",
       style: "spinner"
+    },
+    {
+      banner: "Stroke Color",
+      id: "strokeColor",
+      value: '#000',
+      key: GenerateKey(),
+      location: "right-menu",
+      style: "color",
+      colors: [
+        "#FFF",
+        "#000",
+        "#F0F",
+        "#0F0",
+        "#00F",
+        "#F00"
+      ]
+    },
+    {
+      banner: "Fill Style",
+      id: "fillStyle",
+      value: "(rgba(0, 0, 0, 0, 0.9))",
+      key: GenerateKey(),
+      type: "color",
+      location: "right-menu",
+      style: "color"
     },
     {
       banner: "Shadow Blur",
@@ -147,20 +163,8 @@ const defaults = {
       id: "shadowColor",
       value: "(rgba(0,0,0,0.8))",
       key: GenerateKey(),
-      location: "undecided-menu",
-      style: "color"
-    },
-    {
-      banner: "Stroke Color",
-      id: "strokeColor",
-      value: '#000',
-      key: GenerateKey(),
       location: "right-menu",
-      style: "color",
-      colors: [
-        "#FFF",
-        "#000"
-      ]
+      style: "color"
     },
     {
       banner: "Adjust Y Axis",
@@ -185,7 +189,7 @@ const defaults = {
       max: 2.5,
       key: GenerateKey(),
       type: "canvas",
-      location: "right-menu",
+      location: "left-menu",
       style: "slider"
     },
   ]
@@ -206,8 +210,6 @@ export const ComponentContextProvider = (props) => {
         c.value += increment
       }
     });
-
-
     setState({...state, components: localComponents})
   }
 

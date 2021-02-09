@@ -16,8 +16,55 @@ const NumberSpinner = props => {
       { value => {
 
       const comp = value.components.filter(c => c.id === id)[0];
-      const displayValue = Math.round( ( comp.value + Number.EPSILON ) * 100 ) / 100
-      ;
+      const displayValue = Math.round( ( comp.value + Number.EPSILON ) * 100 ) / 100;
+
+      const SpinnerType = () => {
+        console.log(comp.style);
+        if(comp.style === "spinner") {
+        return (
+          <>
+            <button
+              style={{ background: 'none', border: 'none'}}
+              onClick={() => value.updateComponent(id, -comp.increment)}
+            >
+              <i
+                style={{
+                  border: theme.border,
+                  color: theme.primaryBg,
+                  backgroundColor: theme.primaryContrast,
+                }}
+                className="icon-btn fa fa-minus"
+              />
+            </button>
+            <span
+              style={{
+                border: theme.border,
+                color: theme.primaryBg,
+                backgroundColor: theme.primaryContrast,
+              }}
+              className="display"
+              id="canvas-value"
+            >
+                  { displayValue }
+                </span>
+            <button
+              style={{ background: 'none', border: 'none'}}
+              onClick={() => value.updateComponent(id, comp.increment)}
+            >
+              <i
+                style={{
+                  border: theme.border,
+                  color: theme.primaryBg,
+                  backgroundColor: theme.primaryContrast,
+                }}
+                className="icon-btn fa fa-plus"
+              />
+            </button>
+          </>
+        )}
+        return <h1>not a spinner</h1>
+      }
+
       return (
         <div
           className="number-spinner"
@@ -36,43 +83,7 @@ const NumberSpinner = props => {
 
 
           <section className="counter">
-            <button
-              style={{ background: 'none', border: 'none'}}
-              onClick={() => value.updateComponent(id, -comp.increment)}
-            >
-              <i
-                style={{
-                border: theme.border,
-                color: theme.primaryBg,
-                backgroundColor: theme.primaryContrast,
-                }}
-                className="icon-btn fa fa-minus"
-              />
-            </button>
-              <span
-                style={{
-                  border: theme.border,
-                  color: theme.primaryBg,
-                  backgroundColor: theme.primaryContrast,
-                }}
-                className="display"
-                id="canvas-value"
-              >
-                { displayValue }
-              </span>
-            <button
-              style={{ background: 'none', border: 'none'}}
-              onClick={() => value.updateComponent(id, comp.increment)}
-            >
-              <i
-                style={{
-                  border: theme.border,
-                  color: theme.primaryBg,
-                  backgroundColor: theme.primaryContrast,
-                }}
-                className="icon-btn fa fa-plus"
-              />
-            </button>
+            { <SpinnerType /> }
           </section>
         </div>
       )}}
