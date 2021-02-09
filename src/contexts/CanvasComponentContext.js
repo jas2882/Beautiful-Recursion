@@ -114,7 +114,7 @@ const defaults = {
       banner: "Opacity",
       id: "opacity",
       value: 0.1,
-      increment: 0.1,
+      increment: 0.025,
       min: 0,
       max: 1,
       key: GenerateKey(),

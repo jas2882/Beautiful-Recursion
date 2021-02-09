@@ -85,6 +85,14 @@ const NumberSpinner = props => {
             </>
           )
         }
+        if(comp.style === "color") {
+          console.log(comp.colors)
+          return (
+            <>
+              <h1>Coming Soon</h1>
+            </>
+          )
+        }
         return <h1>not a spinner</h1>
       }
 
