@@ -19,7 +19,7 @@ const NumberSpinner = props => {
       const displayValue = Math.round( ( comp.value + Number.EPSILON ) * 100 ) / 100;
 
       const SpinnerType = () => {
-        console.log(comp.style);
+        console.log(comp.min);
         if(comp.style === "spinner") {
         return (
           <>
@@ -62,6 +62,29 @@ const NumberSpinner = props => {
             </button>
           </>
         )}
+        if(comp.style === "slider" ) {
+          return (
+            <>
+              <div className="slide-container">
+              <span
+                style={{
+                  border: theme.border,
+                  color: theme.primaryBg,
+                  backgroundColor: theme.primaryContrast,
+                }}
+                className="display"
+                id="canvas-value"
+              >
+                { displayValue }
+              </span>
+
+                <input type="range" min={comp.min} max={comp.max} value={comp.value} className="slider" id="myRange"
+                  onChange={() => value.updateComponent(id, comp.increment)}
+                />
+              </div>
+            </>
+          )
+        }
         return <h1>not a spinner</h1>
       }
 
