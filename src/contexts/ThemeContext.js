@@ -1,5 +1,5 @@
-import React, { createContext, Component } from 'react';
 import '../styles/App.css';
+import React, { createContext, Component } from 'react';
 
 export const ThemeContext = createContext();
 
